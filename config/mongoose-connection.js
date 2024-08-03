@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
-
-const uri =
-    "mongodb+srv://tnkiet0512:Zh6OvQlmARPOrvlx@project01.sgaeeet.mongodb.net/Scatch?retryWrites=true&w=majority&appName=project01";
+const debug = require("debug")("development:mongoose");
+const config = require("config");
 
 mongoose
-    .connect(uri)
+    .connect(config.get("MONGOOSE_URI"))
     .then(() => {
+        debug("connected to MongoDB Atlas");
         console.log("connected to MongoDB Atlas");
     })
     .catch((err) => {
+        debug("Error connecting to MongoDB Atlas: ", err);
         console.log("Error connecting to MongoDB Atlas: ", err);
     });
 
