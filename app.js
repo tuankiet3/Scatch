@@ -9,6 +9,7 @@ const cookieParser = require("cookie-parser");
 // import internal
 // eslint-disable-next-line no-unused-vars
 const db = require("./config/mongoose-connection");
+const index = require("./routes/index");
 const ownersRouter = require("./routes/ownersRouter");
 const usersRouter = require("./routes/usersRouter");
 const productsRouter = require("./routes/productsRouter");
@@ -24,12 +25,7 @@ app.set("view engine", "ejs");
 app.use("/owners", ownersRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
-
-// [GET] /
-app.get("/", (req, res) => {
-    res.send("hello world");
-});
-
+app.use("/", index);
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
