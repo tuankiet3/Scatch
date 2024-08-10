@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 
+// product
 const productSchema = mongoose.Schema({
     image: Buffer,
     name: String,

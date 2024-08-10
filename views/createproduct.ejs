@@ -14,6 +14,8 @@
         <!-- success -->
         <% if(success.length > 0){ %> <%- include ('./partials/flash-success')
         %> <% }else {%> <%- include ('./partials/flash-error') %> <% } %>
+
+        <!-- form create product -->
         <form
             action="/products/create"
             method="post"

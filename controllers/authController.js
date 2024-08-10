@@ -5,6 +5,7 @@ const { generateToken } = require("../utils/generateToken")
 // import internal
 const userModel = require("../models/user-model")
 
+// register user
 module.exports.register = async (req, res) => {
     try {
         let { fullname, password, email } = req.body
@@ -45,6 +46,7 @@ module.exports.register = async (req, res) => {
     }
 }
 
+// login
 module.exports.login = async (req, res) => {
     let { email, password } = req.body
     let user = await userModel.findOne({ email })
@@ -68,6 +70,7 @@ module.exports.login = async (req, res) => {
     })
 }
 
+// logout
 module.exports.logout = async (req, res) => {
     res.cookie("token", "")
     res.redirect("/")

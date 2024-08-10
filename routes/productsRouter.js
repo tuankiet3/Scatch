@@ -4,7 +4,7 @@ const isLogedIn = require("../middlewares/isLoggedIn")
 const upload = require("../config/multer")
 const productModel = require("../models/product-model")
 
-// [POST] //create
+// [POST] /products/create
 router.post("/create", isLogedIn, upload.single("image"), async (req, res) => {
     try {
         let { name, price, discount } = req.body

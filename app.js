@@ -16,6 +16,7 @@ const productsRouter = require("./routes/productsRouter")
 const session = require("express-session")
 const flash = require("connect-flash")
 
+// use express-session
 app.use(
     session({
         secret: "your-secret-key",
@@ -24,19 +25,31 @@ app.use(
     })
 )
 
+// status page
 app.use(flash())
 
-// use
+// static file
 app.use(express.static(path.join(__dirname, "public")))
+
+// convert file
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+// cookie management
 app.use(cookieParser())
+
+// view engine
 app.set("view engine", "ejs")
 
-// use router
+// route owners
 app.use("/owners", ownersRouter)
+
+// route users
 app.use("/users", usersRouter)
+
+// route products
 app.use("/products", productsRouter)
+
 app.use("/", index)
 
 // running
