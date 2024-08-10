@@ -1,0 +1,55 @@
+<%- include('./partials/header') %>
+<div class="w-full h-fit flex py-5 px-20">
+    <div class="navbar w-1/4 border-r-2 border-black">
+        <div class="">
+            <div class="mt-20 flex flex-col gap-4">
+                <a href="">All Products</a>
+                <a href="">Create new product</a>
+            </div>
+        </div>
+    </div>
+    <div class="w-2/4">
+        <h2 class="font-bold text-2xl">Create New Product</h2>
+        <h3 class="font-semibold text-xl mt-4">Product Details</h3>
+        <!-- success -->
+        <% if(success.length > 0){ %> <%- include ('./partials/flash-success')
+        %> <% }else {%> <%- include ('./partials/flash-error') %> <% } %>
+        <form
+            action="/products/create"
+            method="post"
+            enctype="multipart/form-data"
+        >
+            <span class="font-medium text-lg mt-3 mb-2 inline-block"
+                >Product Image</span
+            >
+            <input class="block mb-4" type="file" name="image" id="" />
+
+            <div class="flex gap-4 flex-wrap">
+                <input
+                    type="text"
+                    class="border-2 border-gray-300 outline-none w-[calc(50%-0.5rem)] p-2 rounded-lg"
+                    name="name"
+                    placeholder="Product Name"
+                />
+                <input
+                    type="text"
+                    class="border-2 border-gray-300 outline-none w-[calc(50%-0.5rem)] p-2 rounded-lg"
+                    name="price"
+                    placeholder="Product Price"
+                />
+                <input
+                    type="text"
+                    class="border-2 border-gray-300 outline-none w-[calc(50%-0.5rem)] p-2 rounded-lg"
+                    name="discount"
+                    placeholder="Discount Price"
+                />
+            </div>
+
+            <input
+                type="submit"
+                value="Create Product"
+                class="p-3 font-medium bg-blue-400 rounded-lg mt-5"
+            />
+        </form>
+    </div>
+</div>

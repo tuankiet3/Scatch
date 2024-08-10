@@ -10,20 +10,34 @@
         "
             rel="stylesheet"
         />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="w-full h-screen">
-        <Header class="p-3">
-            <h1 class="font-semibold text-3xl">Scatch</h1>
-        </Header>
+    <body class="w-full h-screen relative">
+        <!-- error -->
+        <%- include('./partials/flash-error') %>
+
         <div class="size-full flex justify-center items-center gap-28">
             <div class="w-1/3">
                 <h3 class="text-3xl font-medium">
                     welcome to
                     <span class="font-bold text-blue-400">Scatch</span>
                 </h3>
-                <p class="text-xl">create your account</p>
-                <form action="" method="post" class="mt-4 flex flex-col gap-3">
+
+                <!-- form register -->
+                <p class="text-xl">Create Your Account</p>
+                <form
+                    action="/users/register"
+                    method="post"
+                    class="mt-4 flex flex-col gap-3"
+                >
                     <input
                         type="text"
                         class="outline-none bg-slate-100 p-3 rounded-md border-slate-200 border-2 w-full"
@@ -50,8 +64,13 @@
                 </form>
             </div>
             <div class="w-1/3">
+                <!-- form login -->
                 <p class="text-xl">Login Your Account</p>
-                <form action="" method="post" class="mt-4 flex flex-col gap-3">
+                <form
+                    action="/users/login"
+                    method="post"
+                    class="mt-4 flex flex-col gap-3"
+                >
                     <input
                         type="email"
                         class="outline-none bg-slate-100 p-3 rounded-md border-slate-200 border-2 w-full"
